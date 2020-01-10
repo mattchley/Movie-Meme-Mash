@@ -5,17 +5,34 @@
   <title>Passport Authentication</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="./stylesheets/materialize.min.css" media="screen,projection" />
   <link href="stylesheets/style.css" rel="stylesheet">
 </head>
 
 <body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-      </div>
+
+
+  <nav class="">
+    <div class="nav-wrapper container">
+      <a href="./index.html" class="brand-logo center">Movie Meme Mash</a>
+      <a href="#" data-target="nav-mobile" class="top-nav sidenav-trigger full hide-on-large-only">
+        <i class="material-icons">menu</i>
+      </a>
+      <ul class="left hide-on-med-and-down">
+        <li class="search">
+          <div class="search-wrapper">
+            <input id="search" placeholder="Search">
+          </div>
+        </li>
+      </ul>
+      <ul class="right hide-on-med-and-down">
+        <li class=><a href="./signup.html">Sign Up</a></li>
+        <li class="active"><a href="./login.html">Login</a></li>
+      </ul>
     </div>
   </nav>
+
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
@@ -32,7 +49,7 @@
           <button type="submit" class="btn btn-default">Login</button>
         </form>
         <br />
-        <p>Or sign up <a href="/">here</a></p>
+        <p>Or sign up <a href="./signup.html">here</a></p>
       </div>
     </div>
   </div>
