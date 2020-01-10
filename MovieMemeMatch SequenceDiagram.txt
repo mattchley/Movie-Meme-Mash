@@ -1,0 +1,16 @@
+title Movie Meme Match
+
+GetMovieID->SearchIMDB: movieName
+SearchIMDB->GetMovieID: movieID
+
+GetMovieID->GetVlogID: movieID
+GetMovieID<-GetVlogID: vlogID
+
+GetMovieID->RenderVlogs: vlogID for readers
+GetMovieID->RenderCreateVlog: display movieID, title, director, IMDB rating, userID
+
+RenderCreateVlog->SearchGiphy: sentiment
+RenderCreateVlog<-SearchGiphy: giphyID (top 10)
+RenderCreateVlog->SelectGiphy: giphyID (top 10)
+RenderCreateVlog->SaveComment: vlogID
+RenderVlogs<-SaveComment:vlogID, Giphy, Comment, and Author for movie
