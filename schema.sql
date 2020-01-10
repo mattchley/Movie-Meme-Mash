@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS mmm_DB;
+
+CREATE database mmm_DB;
