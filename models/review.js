@@ -1,31 +1,31 @@
 module.exports = function (sequelize, DataTypes) {
   var Review = sequelize.define("Review", {
     movie_id: {
-      type: Datatypes.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false
     },
     user_id: {
-      type: Datatypes.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false
     },
     giphy: {
-      type: Datatypes.STRING,
+      type: DataTypes.STRING,
       allowNull: false
     },
     review: {
-      type: Datatypes.TEXT,
+      type: DataTypes.TEXT,
       allowNull: false
     },
     plus: {
-      type: Datatypes.INTEGER,
+      type: DataTypes.INTEGER,
       defaultValue: 0
     },
     minus: {
-      type: Datatypes.INTEGER,
+      type: DataTypes.INTEGER,
       defaultValue: 0
     },
     rating: {
-      type: Datatypes.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false
     },
 
@@ -43,3 +43,5 @@ module.exports = function (sequelize, DataTypes) {
 
   return Review;
 };
+
+// will need a foreign key by email

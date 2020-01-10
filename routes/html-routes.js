@@ -10,6 +10,7 @@ module.exports = function(app) {
     // If the user already has an account send them to the members page
     if (req.user) {
       res.redirect("/members");
+      // change this to the landing page
     }
     res.sendFile(path.join(__dirname, "../public/signup.html"));
   });
@@ -18,6 +19,7 @@ module.exports = function(app) {
     // If the user already has an account send them to the members page
     if (req.user) {
       res.redirect("/members");
+      // change this to the landing page
     }
     res.sendFile(path.join(__dirname, "../public/login.html"));
   });
