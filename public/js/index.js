@@ -1,6 +1,8 @@
 $(document).ready(function () {
     var search = $("#movie-search");
 
+    var giphy = $("#giphy-search");
+
     search.submit(function (event) {
         // event.preventDefault() can be used to prevent an event's default behavior.
         // Here, it prevents the submit button from trying to submit a form when clicked
@@ -39,6 +41,36 @@ $(document).ready(function () {
 
             // Prepending the fullImage to the images div
             $("#movie-poster").prepend(fullImage);
+
+        });
+    });
+
+    giphy.submit(function (event) {
+        // event.preventDefault() can be used to prevent an event's default behavior.
+        // Here, it prevents the submit button from trying to submit a form when clicked
+        event.preventDefault();
+
+        // Here we grab the text from the input box
+        var giphyMood = $("#giphy-input").val();
+
+        // Here we construct our URL
+        var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=Fq39ve6Gue8V8ocJWGP19i1RErf4KQV6&q=" + giphyMood + "&limit=1&offset=0&rating=G&lang=en";
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function (response) {
+            const mainIMG = response.data[0].images.original.url
+
+            // Creating and storing an image tag
+            var fullImage = $("<img>");
+
+            // Setting the fullImage src attribute to imageUrl
+            fullImage.attr("src", mainIMG);
+            fullImage.attr("alt", "main image");
+
+            // Prepending the fullImage to the images div
+            $("#giphy-image").prepend(fullImage);
 
         });
     });

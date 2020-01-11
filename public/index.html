@@ -45,77 +45,32 @@
         </li>
     </ul>
 
-    <div class="containter">
-        <div id="movie-title"></div>
-        <div id="movie-director"></div>
-        <div id="movie-plot"></div>
-        <div id="movie-poster"></div>
-        <div id="movie-rating"></div>
-        <div id="movie-imdbID"></div>
-    </div>
 
-
-    <!-- <div class="container">
-        <br>
-        <div class="row">
-            <div class="col l3">
-                <div class="card">
-                    <div class="card-image">
-                        <a href="#"><img src="http://placekitten.com/g/200/200"></a>
-                    </div>
-                    <div class="card-content">
-
-                        <span class="card-title activator grey-text text-darken-4">
-                            <p><a href="#">Attack by Kitty</a></p>
-                        </span>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col l3">
-                <div class="card">
-                    <div class="card-image">
-                        <a href="#"><img src="http://placekitten.com/g/200/200"></a>
-                    </div>
-                    <div class="card-content">
-
-                        <span class="card-title activator grey-text text-darken-4">
-                            <p><a href="#">Attack by Kitty</a></p>
-                        </span>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col l3">
-                <div class="card">
-                    <div class="card-image">
-                        <a href="#"><img src="http://placekitten.com/g/200/200"></a>
-                    </div>
-                    <div class="card-content">
-
-                        <span class="card-title activator grey-text text-darken-4">
-                            <p><a href="#">Attack by Kitty</a></p>
-                        </span>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col l3">
-                <div class="card">
-                    <div class="card-image">
-                        <a href="#"><img src="http://placekitten.com/g/200/200"></a>
-                    </div>
-                    <div class="card-content">
-
-                        <span class="card-title activator grey-text text-darken-4">
-                            <p><a href="#">Attack by Kitty</a></p>
-                        </span>
-
-                    </div>
+    <div class="row">
+        <div class="col s12 m7">
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text" style="overflow: auto">
+                    <div id="movie-poster" style="float:left"></div>
+                    <span class="card-title" id="movie-title"></span>
+                    <h2 id="movie-director"></h2>
+                    <p id="movie-plot"></p>
+                    <p id="movie-rating"></p>
+                    <p id="movie-imdbID"></p>
                 </div>
             </div>
         </div>
-    </div> -->
+
+        <div class="col s12 m5">
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text" style="overflow: auto">
+                    <form id="giphy-search">
+                        <input id="giphy-input" placeholder="Search">
+                        <div id="giphy-image" style="float:center"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <script src="./js/materialize.min.js"></script>
