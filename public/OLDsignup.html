@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="./stylesheets/materialize.min.css" media="screen,projection" />
+  <title>Movie Meme Mash</title>
+</head>
+
+<body>
+  <nav class="">
+    <div class="nav-wrapper container">
+      <a href="./index.html" class="brand-logo center">Movie Meme Mash</a>
+      <a href="#" data-target="nav-mobile" class="top-nav sidenav-trigger full hide-on-large-only">
+        <i class="material-icons">menu</i>
+      </a>
+      <ul class="left hide-on-med-and-down">
+        <li class="search">
+          <div class="search-wrapper">
+            <input id="search" placeholder="Search">
+          </div>
+        </li>
+      </ul>
+      <ul class="right hide-on-med-and-down">
+        <li class="active"><a href="#">Sign Up</a></li>
+        <li><a href="./login.html">Login</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <ul id="nav-mobile" class="sidenav sidenav-fixed" style="transform:translateX(-105%);">
+    <li class="search">
+      <div class="search-wrapper">
+        <input id="search" placeholder="Search">
+      </div>
+    </li>
+    <li class="bold">
+      <a href="#" class="waves-effect waves-teal">Login</a>
+    </li>
+  </ul>
+
+
+  <div class="container">
+    <br>
+    <div class="row">
+      <div class="col l6">
+        <!-- <div class="card">
+                    <div class="card-image">
+                        <a href="#"><img src="http://placekitten.com/g/200/200"></a>
+                    </div>
+                    <div class="card-content">
+
+                        <span class="card-title activator grey-text text-darken-4">
+                            <p><a href="#">Attack by Kitty</a></p>
+                        </span>
+
+                    </div>
+                </div> -->
+      </div>
+      <div class="col l6">
+        <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s6">
+                <input placeholder="Tony" id="first_name" type="text" class="validate">
+                <label for="first_name">First Name</label>
+              </div>
+              <div class="input-field col s6">
+                <input placeholder="Stark" id="last_name" type="text" class="validate">
+                <label for="last_name">Last Name</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input placeholder="IronMan@starkindustries.com" id="email" type="email" class="validate">
+                <label for="email">Email</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input placeholder="IaMiRoNmAn123" id="password" type="password" class="validate">
+                <label for="password">Password</label>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="./js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    $("#find-giphy").submit(function (event) {
+      // event.preventDefault() can be used to prevent an event's default behavior.
+      // Here, it prevents the submit button from trying to submit a form when clicked
+      event.preventDefault();
+
+
+    })
+  </script>
+</body>
+
+</html>
