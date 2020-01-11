@@ -11,8 +11,8 @@
     <title>Movie Meme Mash</title>
 </head>
 
-<body>
-    <nav class="">
+<body class="blue-grey lighten-5">
+    <nav class="deep-purple darken-3">
         <div class="nav-wrapper container">
             <a href="./index.html" class="brand-logo center">Movie Meme Mash</a>
             <a href="#" data-target="nav-mobile" class="top-nav sidenav-trigger full hide-on-large-only">
@@ -21,7 +21,9 @@
             <ul class="left hide-on-med-and-down">
                 <li class="search">
                     <div class="search-wrapper">
-                        <input id="search" placeholder="Search">
+                        <form id="movie-search">
+                            <input id="movie-input" placeholder="Search">
+                        </form>
                     </div>
                 </li>
             </ul>
@@ -35,7 +37,7 @@
     <ul id="nav-mobile" class="sidenav sidenav-fixed" style="transform:translateX(-105%);">
         <li class="search">
             <div class="search-wrapper">
-                <input id="search" placeholder="Search">
+                <input id="find-movie" placeholder="Search">
             </div>
         </li>
         <li class="bold">
@@ -43,8 +45,17 @@
         </li>
     </ul>
 
+    <div class="containter">
+        <div id="movie-title"></div>
+        <div id="movie-director"></div>
+        <div id="movie-plot"></div>
+        <div id="movie-poster"></div>
+        <div id="movie-rating"></div>
+        <div id="movie-imdbID"></div>
+    </div>
 
-    <div class="container">
+
+    <!-- <div class="container">
         <br>
         <div class="row">
             <div class="col l3">
@@ -104,10 +115,12 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
     <script src="./js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
 </body>
 
 </html>
