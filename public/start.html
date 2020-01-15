@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="./stylesheets/materialize.min.css" media="screen,projection" />
+    <!-- <link href="https://fonts.googleapis.com/css?family=Crushed&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Crushed|Raleway&display=swap" rel="stylesheet">
+
+    <title>Movie Meme Mash</title>
+
+    <style>
+        .brand-logo {
+            font-family: 'Crushed', cursive;
+            font-size: xxx-large;
+        }
+
+        #movie-input {
+            color: black;
+        }
+
+        #movie-title {
+            font-size: xx-large;
+        }
+
+        #giphy-input {
+            color: black;
+        }
+
+        .welcome {
+            text-align: center;
+            font-family: 'Crushed', cursive;
+        }
+
+        .must-login {
+            text-align: center;
+            font-style: italic;
+        }
+
+        .intro-image {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 25%;
+        }
+
+        .description {
+            font-family: 'Raleway', sans-serif;
+            text-align: center;
+        }
+
+        .post-giphy {
+            font-family: 'Raleway', sans-serif;
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+
+<body class="white">
+    <nav class="blue lighten-1">
+        <div class="nav-wrapper container">
+            <a href="./index.html" class="brand-logo center black-text" card-panel white>REACT MOVIE REVIEW</a>
+            <a href="#" data-target="nav-mobile" class="top-nav sidenav-trigger full hide-on-large-only">
+                <i class="material-icons">menu</i>
+            </a>
+            <ul class="left hide-on-med-and-down">
+                <li><a class="black-text" href="./signup.html">Sign Up</a></li>
+            </ul>
+            <ul class="right hide-on-med-and-down black-text">
+
+                <li><a class="black-text" href="./login.html">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul id="nav-mobile" class="sidenav sidenav-fixed" style="transform:translateX(-105%);">
+        <li class="search">
+            <div class="search-wrapper">
+                <input id="find-movie" placeholder="Search">
+            </div>
+        </li>
+        <li class="bold">
+            <a href="#" class="waves-effect waves-light">Login</a>
+        </li>
+    </ul>
+
+    <div class="row">
+        <div class="col s12 m7">
+            <p id="movie-title"></p>
+        </div>
+
+        <div class="col s12 m5">
+            <p></p>
+        </div>
+    </div>
+
+    <h1 class="welcome">Welcome to React Movie Review!</h1>
+
+    <h6 class="must-login">Users must login to enter website.</h6>
+
+
+    <h4 class="description">Read or write a movie review, then...</h4>
+   <h3 class="post-giphy">Post a Giphy to Share How You REALLY Feel</h3> 
+    <br>
+
+    <img src="https://media.giphy.com/media/dkGhBWE3SyzXW/giphy.gif" alt="Hell Yeah" class="intro-image">
+    <br>
+
+
+
+    <script src="./js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+
+</html>
