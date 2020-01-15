@@ -3,27 +3,27 @@ module.exports = function (sequelize, DataTypes) {
 
         title: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         director: {
             type: DataTypes.TEXT,
-            allowNull: false
+            allowNull: true
         },
         plot: {
             type: DataTypes.TEXT,
-            allowNull: false
+            allowNull: true
         },
         poster: {
             type: DataTypes.TEXT,
-            allowNull: false
+            allowNull: true
         },
         rating: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: true
         },
         imdbID: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: true
         }
     });
 
@@ -32,7 +32,7 @@ module.exports = function (sequelize, DataTypes) {
         // A Movie can't be created without an Author due to the foreign key constraint
         Movie.belongsTo(models.Review, {
             foreignKey: {
-                allowNull: false
+                allowNull: true
             }
         });
     };
