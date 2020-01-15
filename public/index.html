@@ -7,30 +7,73 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="./stylesheets/materialize.min.css" media="screen,projection" />
+    <!-- <link href="https://fonts.googleapis.com/css?family=Crushed&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Crushed|Raleway&display=swap" rel="stylesheet">
 
     <title>Movie Meme Mash</title>
 
+    <style>
+        .brand-logo {
+            font-family: 'Crushed', cursive;
+            font-size: xxx-large;
+        }
+
+        #movie-input {
+            color: black;
+        }
+
+        #movie-title {
+            font-size: xx-large;
+        }
+
+        #giphy-input {
+            color: black;
+        }
+
+        .welcome {
+            text-align: center;
+            font-family: 'Crushed', cursive;
+        }
+
+        .must-login {
+            text-align: center;
+            font-style: italic;
+        }
+
+        .intro-image {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 25%;
+        }
+
+        .description {
+            font-family: 'Raleway', sans-serif;
+            text-align: center;
+        }
+
+        .post-giphy {
+            font-family: 'Raleway', sans-serif;
+            text-align: center;
+        }
+
+    </style>
+
 </head>
 
-<body class="blue-grey lighten-5">
-    <nav class="deep-purple darken-3">
+<body class="white">
+    <nav class="blue lighten-1">
         <div class="nav-wrapper container">
-            <a href="./index.html" class="brand-logo center" card-panel teal lighten-2>Movie Meme Mash</a>
+            <a href="./index.html" class="brand-logo center black-text" card-panel white>REACT MOVIE REVIEW</a>
             <a href="#" data-target="nav-mobile" class="top-nav sidenav-trigger full hide-on-large-only">
                 <i class="material-icons">menu</i>
             </a>
             <ul class="left hide-on-med-and-down">
-                <li class="search">
-                    <div class="search-wrapper">
-                        <form id="movie-search">
-                            <input id="movie-input" placeholder="Search">
-                        </form>
-                    </div>
-                </li>
+                <li><a class="black-text" href="./signup.html">Sign Up</a></li>
             </ul>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="./signup.html">Sign Up</a></li>
-                <li><a href="./login.html">Login</a></li>
+            <ul class="right hide-on-med-and-down black-text">
+
+                <li><a class="black-text" href="./login.html">Login</a></li>
             </ul>
         </div>
     </nav>
@@ -42,36 +85,32 @@
             </div>
         </li>
         <li class="bold">
-            <a href="#" class="waves-effect waves-teal">Login</a>
+            <a href="#" class="waves-effect waves-light">Login</a>
         </li>
     </ul>
 
-
     <div class="row">
         <div class="col s12 m7">
-            <div class="card blue-grey darken-1">
-                <div class="card-content white-text" style="overflow: auto">
-                    <div id="movie-poster" style="float:left"></div>
-                    <span class="card-title" id="movie-title"></span>
-                    <h2 id="movie-director"></h2>
-                    <p id="movie-plot"></p>
-                    <p id="movie-rating"></p>
-                    <p id="movie-imdbID"></p>
-                </div>
-            </div>
+            <p id="movie-title"></p>
         </div>
 
         <div class="col s12 m5">
-            <div class="card blue-grey darken-1">
-                <div class="card-content white-text" style="overflow: auto">
-                    <form id="giphy-search">
-                        <input id="giphy-input" placeholder="Search">
-                        <div id="giphy-image" style="float:center"></div>
-                    </form>
-                </div>
-            </div>
+            <p></p>
         </div>
     </div>
+
+    <h1 class="welcome">Welcome to React Movie Review!</h1>
+
+    <h6 class="must-login">Users must login to enter website.</h6>
+
+
+    <h4 class="description">Read or write a movie review, then...</h4>
+   <h3 class="post-giphy">Post a Giphy to Share How You REALLY Feel</h3> 
+    <br>
+
+    <img src="https://media.giphy.com/media/dkGhBWE3SyzXW/giphy.gif" alt="Hell Yeah" class="intro-image">
+    <br>
+
 
 
     <script src="./js/materialize.min.js"></script>
