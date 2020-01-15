@@ -31,6 +31,7 @@ $(document).ready(function () {
             // Setting the fullImage src attribute to imageUrl
             fullImage.attr("src", mainIMG);
             fullImage.attr("alt", "main image");
+            fullImage.addClass("giphy-result")
             // Prepending the fullImage to the images div
             $("#giphy-image").prepend(fullImage);
         });
@@ -79,8 +80,8 @@ $(document).ready(function () {
         cardContent.addClass("card-content white-tex")
 
         var movieImage = $("<div>").attr("style", "float:left")
-        movieImage.addClass("movie-poster")
         var image = $("<img>").attr("src", poster);
+        image.addClass("movie-poster")
         movieImage.append(image);
         var titleElement = $("<h1>").text(title);
         titleElement.addClass("card-title");
@@ -136,7 +137,7 @@ $(document).ready(function () {
         var ratingOmdb = $(".card-rating");
         var imdbIdOmdb = $(".card-id");
         var posterOmdb = $(".movie-poster");
-        var giphyImg = $("#giphy-image");
+        var giphyImg = $(".giphy-result");
 
         var newReview = {
             giphy: giphyImg.attr("src")
