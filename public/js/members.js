@@ -73,7 +73,7 @@ function createMovieCard(result) {
     var col = $("<div>")
     col.addClass("col s12 m7")
     var card = $("<div>")
-    card.addClass("card white")
+    card.addClass("card white movie-info-text")
     var cardContent = $("<div>").attr("style", "overflow:auto")
     cardContent.addClass("card-content white-tex")
     
@@ -82,7 +82,7 @@ function createMovieCard(result) {
     var image = $("<img>").attr("src", poster);
     movieImage.append(image);
     var titleElement = $("<h1>").text(title);
-    titleElement.addClass("card-title");
+    titleElement.addClass("card-title movie-info-text");
     var directorElement = $("<p>").text("Director: " + director);
     var lineBreak = $("<br>");
     var plotElement = $("<p>").text("Plot: " + plot);
