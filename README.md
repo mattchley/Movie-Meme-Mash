@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a movie review app. Users must sign up for a login to enter the webite. Once logged in, users can search for a movie title. The search will render the movie's title,director, plot, poster, rating and IMDB ID. The user can leave a review for the movie and a giphy image expressing how they feel about the movie.
+This is a movie review app. Users must sign up for a login to enter the webite. Once logged in, users can search for a movie title. The ssearch will render the movie's title, director, plot, poster, rating and IMDB ID. The user can leave a review for the movie and a giphy image expressing how they feel about the movie.
 
 The user can search reviews of other users by searching via Author.
 
@@ -16,7 +16,7 @@ I also WANT to write my own movie reviews and share my feelings about the movie 
 
 SO THAT I can express my opinion about a movie.
 
-## Instillaton
+## Installation
 
 Dependencies used include
 * bcrypt.js - secured way to store passwords in my database regardless of whatever language my app's backend is built in.
