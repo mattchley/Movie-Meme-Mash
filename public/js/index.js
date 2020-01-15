@@ -1,24 +1,24 @@
 $(document).ready(function () {
-    var search = $("#movie-search");
+    var searchField = $("#movie-search");
+    var giphyField = $("#giphy-search");
+    var postBtn = $("#post");
 
-    var giphy = $("#giphy-search");
+    var titleOmdb = $("span#movie-title");
+    var directorOmdb = $("#movie-director");
+    var plotOmdb = $("#movie-plot");
+    var ratingOmdb = $("#movie-rating");
+    var imdbIdOmdb = $("#movie-imdbID");
+    var posterOmdb = $("#movie-poster");
+    var giphyImg = $("#giphy-image");
 
-    search.submit(function (event) {
-        // event.preventDefault() can be used to prevent an event's default behavior.
-        // Here, it prevents the submit button from trying to submit a form when clicked
+    searchField.submit(function (event) {
+
         event.preventDefault();
 
-        // Here we grab the text from the input box
         var movie = $("#movie-input").val();
 
-        // Here we construct our URL
         var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
 
-        // Write code between the dashes below to hit the queryURL with $ajax, then take the response data
-        // and display it in the div with an id of movie-view
-
-        // ------YOUR CODE GOES IN THESE DASHES. DO NOT MANUALLY EDIT THE HTML ABOVE.
-        console.log(movie);
         $.ajax({
             url: queryURL,
             method: "GET"
@@ -26,52 +26,69 @@ $(document).ready(function () {
             $("#movie-title").text(JSON.stringify(response.Title))
             $("#movie-director").text(JSON.stringify(response.Director))
             $("#movie-plot").text(JSON.stringify(response.Plot))
-            
+
             $("#movie-rating").text(JSON.stringify(response.imdbRating))
             $("#movie-imdbID").text(JSON.stringify(response.imdbID));
 
-            const mainIMG = response.Poster;
+            const posterOMDB = response.Poster;
 
             // Creating and storing an image tag
-            var fullImage = $("<img>");
+            var renderedPoster = $("<img>");
 
-            // Setting the fullImage src attribute to imageUrl
-            fullImage.attr("src", mainIMG);
-            fullImage.attr("alt", "main image");
+            // Setting the renderedPoster src attribute to imageUrl
+            renderedPoster.attr("src", posterOMDB);
+            renderedPoster.attr("alt", "main image");
 
-            // Prepending the fullImage to the images div
-            $("#movie-poster").prepend(fullImage);
+            // Prepending the renderedPoster to the images div
+            $("#movie-poster").prepend(renderedPoster);
 
         });
     });
 
-    giphy.submit(function (event) {
-        // event.preventDefault() can be used to prevent an event's default behavior.
-        // Here, it prevents the submit button from trying to submit a form when clicked
+    giphyField.submit(function (event) {
+        console.log("pressed giphy")
         event.preventDefault();
 
-        // Here we grab the text from the input box
         var giphyMood = $("#giphy-input").val();
 
-        // Here we construct our URL
         var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=Fq39ve6Gue8V8ocJWGP19i1RErf4KQV6&q=" + giphyMood + "&limit=1&offset=0&rating=G&lang=en";
 
         $.ajax({
             url: queryURL,
             method: "GET"
         }).then(function (response) {
-            const mainIMG = response.data[0].images.original.url
+            const giphyURL = response.data[0].images.original.url
 
             // Creating and storing an image tag
-            var fullImage = $("<img>");
+            var renderedGiphy = $("<img>");
 
-            // Setting the fullImage src attribute to imageUrl
-            fullImage.attr("src", mainIMG);
-            fullImage.attr("alt", "main image");
+            // Setting the renderedGiphy src attribute to imageUrl
+            renderedGiphy.attr("src", giphyURL);
+            renderedGiphy.attr("alt", "main image");
 
-            // Prepending the fullImage to the images div
-            $("#giphy-image").prepend(fullImage);
+            // Prepending the renderedGiphy to the images div
+            $("#giphy-image").prepend(renderedGiphy
+);
 
         });
+    });
+
+    postBtn.on("click", function (event) {
+        event.preventDefault();
+        var newReview = {
+            giphy: giphyImg.attr("src")
+        };
+        console.log(newReview)
+        var newMovie = {
+            title: titleOmdb.text(),
+            director: directorOmdb.text(),
+            plot: plotOmdb.text(),
+            poster: posterOmdb.attr("src"),
+            rating: ratingOmdb.text(),
+            imdbID: imdbIdOmdb.text()
+        }
+        console.log(newMovie)
+        $.post("/api/reviews", newReview);
+        $.post("/api/movies", newMovie)
     });
 });

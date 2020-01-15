@@ -18,7 +18,7 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: true
         },
         rating: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: true
         },
         imdbID: {
