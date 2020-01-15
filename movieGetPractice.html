@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <div class="container">
+  <div class="container" style="float: right;">
     <h1>Movie Search</h1>
 
     <!-- This form will be where users input data about the movies -->
@@ -31,7 +31,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
       // This .on("click") function will trigger the AJAX Call
-      $("#find-movie").on("click", function(event) {
+      $("#find-movie").on("click", function (event) {
 
         // event.preventDefault() can be used to prevent an event's default behavior.
         // Here, it prevents the submit button from trying to submit a form when clicked
@@ -51,7 +51,7 @@
         $.ajax({
           url: queryURL,
           method: "GET"
-        }).then(function(response) {
+        }).then(function (response) {
           $("#movie-title").text(JSON.stringify(response.Title))
           $("#movie-director").text(JSON.stringify(response.Director))
           $("#movie-plot").text(JSON.stringify(response.Plot))
@@ -64,7 +64,6 @@
 
       });
     </script>
-  </div>
 </body>
 
 </html>
