@@ -73,7 +73,7 @@ function createMovieCard(result) {
     var col = $("<div>")
     col.addClass("col s12 m7")
     var card = $("<div>")
-    card.addClass("card white")
+    card.addClass("card blue-grey darken-1")
     var cardContent = $("<div>").attr("style", "overflow:auto")
     cardContent.addClass("card-content white-tex")
     
@@ -81,25 +81,23 @@ function createMovieCard(result) {
     movieImage.addClass("movie-poster")
     var image = $("<img>").attr("src", poster);
     movieImage.append(image);
-    var titleElement = $("<h1>").text(title);
+    var titleElement = $("<h2>").text(title);
     titleElement.addClass("card-title");
-    var directorElement = $("<p>").text("Director: " + director);
-    var lineBreak = $("<br>");
-    var plotElement = $("<p>").text("Plot: " + plot);
-    var lineBreakTwo = $("<br>");
-    var ratingElement = $("<p>").text("IMDB Rating: " + rating);
+    var directorElement = $("<h3>").text(director);
+    var plotElement = $("<p>").text(plot);
+    var ratingElement = $("<p>").text(rating);
     var imdbIDElement = $("<p>");
     
-    cardContent.append(movieImage, titleElement, directorElement, lineBreak, plotElement, lineBreakTwo, ratingElement, imdbIDElement);
+    cardContent.append(movieImage, titleElement, directorElement, plotElement, ratingElement, imdbIDElement);
     card.append(cardContent);
     col.append(card);
     //row.append(col);
     var colGiphy = $("<div>")
     colGiphy.addClass("col s12 m5")
     var cardGiphy = $("<div>")
-    cardGiphy.addClass("card white")
+    cardGiphy.addClass("card blue-grey darken-1")
     var cardContentGiphy = $("<div>").attr("style", "overflow:auto")
-    cardContentGiphy.addClass("card-content black-tex")
+    cardContentGiphy.addClass("card-content white-tex")
     // var formGiphy = $("<form>").attr("id", "giphy-search");
     var inputGiphy = $("<input>").attr("id", "giphy-input")
     inputGiphy.attr("placeholder", "Search");
