@@ -31,7 +31,7 @@ $(document).ready(function () {
       // Setting the fullImage src attribute to imageUrl
       fullImage.attr("src", mainIMG);
       fullImage.attr("alt", "main image");
-      fullImage.addClass("giphy-result")
+      fullImage.addClass("giphy-result");
       // Prepending the fullImage to the images div
       $("#giphy-image").prepend(fullImage);
     });
@@ -39,7 +39,7 @@ $(document).ready(function () {
   $("#movie-search").submit(function (event) {
     // if (event.which == 13) {
     event.preventDefault();
-    var movieEl = $("#movie-input")
+    var movieEl = $("#movie-input");
     var movie = movieEl.val();
     // console.log(movie)
     $("#movieCard").remove();
@@ -94,7 +94,7 @@ $(document).ready(function () {
     var lineBreakTwo = $("<br>");
     var ratingElement = $("<p>").text("IMDB Rating: " + rating);
     ratingElement.addClass("card-rating");
-    var imdbIDElement = $("<p>");
+    var imdbIDElement = $("<p>").text("IMDB ID: " + imdbID);
     imdbIDElement.addClass("card-id");
 
     cardContent.append(movieImage, titleElement, directorElement, lineBreak, plotElement, lineBreakTwo, ratingElement, imdbIDElement);
@@ -139,9 +139,10 @@ $(document).ready(function () {
     var imdbIdOmdb = $(".card-id");
     var posterOmdb = $(".movie-poster");
     var giphyImg = $(".giphy-result");
+    var user = $(".member-name");
 
     var newReview = {
-      giphy: giphyImg.attr("src")
+      giphy: giphyImg.attr("src"),
     };
     console.log(newReview);
     var newMovie = {
@@ -151,7 +152,7 @@ $(document).ready(function () {
       poster: posterOmdb.attr("src"),
       rating: ratingOmdb.text(),
       imdbID: imdbIdOmdb.text()
-    }
+    };
     console.log(newMovie);
     $.post("/api/reviews", newReview);
     $.post("/api/movies", newMovie);
