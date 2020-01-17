@@ -67,8 +67,7 @@ $(document).ready(function () {
             renderedGiphy.attr("alt", "main image");
 
             // Prepending the renderedGiphy to the images div
-            $("#giphy-image").prepend(renderedGiphy
-);
+            $("#giphy-image").prepend(renderedGiphy);
 
         });
     });
