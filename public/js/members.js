@@ -148,36 +148,46 @@ $(document).ready(function() {
   
   
 
-    $("#post").on("click", function (event) {
-        event.preventDefault();
+    $("#movieResults").prepend(col);
+    // $("#movieResults").append(colGiphy);
+    // console.log(163)
+    // formGiphy.submit(function (event) {
+    //     console.log("165")
+    //     giphySubmit(event)
+    // });
 
-        // post variables
-        var titleOmdb = $(".card-title");
-        var directorOmdb = $(".card-director");
-        var plotOmdb = $(".card-plot");
-        var ratingOmdb = $(".card-rating");
-        var imdbIdOmdb = $(".card-id");
-        var posterOmdb = $(".movie-poster");
-        var giphyImg = $(".giphy-result");
+    //creates structure for the giphy search??? Comments??
+  
 
-        var newReview = {
-            giphy: giphyImg.attr("src")
-        };
-        console.log(newReview)
-        var newMovie = {
-            title: titleOmdb.text(),
-            director: directorOmdb.text(),
-            plot: plotOmdb.text(),
-            poster: posterOmdb.attr("src"),
-            rating: ratingOmdb.text(),
-            imdbID: imdbIdOmdb.text()
-        }
-        console.log(newMovie)
-        $.post("/api/reviews", newReview);
-        $.post("/api/movies", newMovie)
-    });
+  $("#post").on("click", function (event) {
+    event.preventDefault();
 
-});
+    // post variables
+    var titleOmdb = $(".card-title");
+    var directorOmdb = $(".card-director");
+    var plotOmdb = $(".card-plot");
+    var ratingOmdb = $(".card-rating");
+    var imdbIdOmdb = $(".card-id");
+    var posterOmdb = $(".movie-poster");
+    var giphyImg = $(".giphy-result");
+    var user = $(".member-name");
+
+    var newReview = {
+      giphy: giphyImg.attr("src"),
+    };
+    console.log(newReview);
+    var newMovie = {
+      title: titleOmdb.text(),
+      director: directorOmdb.text(),
+      plot: plotOmdb.text(),
+      poster: posterOmdb.attr("src"),
+      rating: ratingOmdb.text(),
+      imdbID: imdbIdOmdb.text()
+    };
+    console.log(newMovie);
+    $.post("/api/reviews", newReview);
+    $.post("/api/movies", newMovie);
+  });
 
 function updateGiphyCard(response) {
     var img1 = response.data[0].images.original.url;
@@ -201,4 +211,4 @@ function updateGiphyCard(response) {
     $("#gif9").attr("src", img9);
 }
 
-
+});

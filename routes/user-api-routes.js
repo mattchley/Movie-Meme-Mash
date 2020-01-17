@@ -26,19 +26,19 @@ module.exports = function(app) {
       });
   });
 
-  app.post("/api/createreview", function(req, res) {
-    db.Movie.create({
-      poster: req.body.movie-poster,
-      director: req.body.movie-director,
-      plot: req.body.movie-plot,
-      rating: req.body.movie-rating,
-      imdbID: req.body.movie-imdbID,
-      image: req.body.giphy-image
-    })
-      .catch(function(err) {
-        res.status(401).json(err);
-      });
-  });
+  // app.post("/api/createreview", function(req, res) {
+  //   db.Movie.create({
+  //     poster: req.body.movie-poster,
+  //     director: req.body.movie-director,
+  //     plot: req.body.movie-plot,
+  //     rating: req.body.movie-rating,
+  //     imdbID: req.body.movie-imdbID,
+  //     image: req.body.giphy-image
+  //   })
+  //     .catch(function(err) {
+  //       res.status(401).json(err);
+  //     });
+  // });
 
   // Route for logging user out
   app.get("/logout", function(req, res) {
