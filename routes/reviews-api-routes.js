@@ -21,7 +21,7 @@ module.exports = function (app) {
             plot: req.body.plot,
             poster: req.body.poster,
             rating: req.body.rating,
-            imdbID: req.body.imdbId,
+            imdbID: req.body.imdbID
         })
             .then(function (dbMovie) {
                 res.json(dbMovie);
