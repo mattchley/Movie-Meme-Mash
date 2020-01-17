@@ -1,11 +1,7 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
     "password": "Nirvana74!",
-=======
-    "password": "OurLov3!",
->>>>>>> 1d5738a16213963eb86008e099cac2cb33b309f5
     "database": "mmm_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
