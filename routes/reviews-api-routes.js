@@ -6,11 +6,12 @@ module.exports = function (app) {
     app.post("/api/reviews", function (req, res) {
         console.log("giphy" + req.body);
         db.Review.create({
-            giphy: req.body.giphy
+            giphy: req.body.giphy,
+            // movieId: req.body.movieId,
         })
-            .then(function (dbReview) {
-                res.json(dbReview);
-            });
+        .then(function (dbReview) {
+            res.json(dbReview);
+        });
     });
 
     app.post("/api/movies", function (req, res) {
@@ -23,10 +24,8 @@ module.exports = function (app) {
             rating: req.body.rating,
             imdbID: req.body.imdbID
         })
-            .then(function (dbMovie) {
-                res.json(dbMovie);
-            });
+        .then(function (dbMovie) {
+            res.json(dbMovie);
+        });
     });
 };
-
-
