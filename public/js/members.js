@@ -177,6 +177,41 @@ $(document).ready(function() {
         $.post("/api/movies", newMovie)
     });
 
+// MODAL SUBMIT BUTTON
+    $("#submit").on("click", function (event) {
+        event.preventDefault();
+
+        // post variables
+        // var titleOmdb = $(".card-title");
+        // var directorOmdb = $(".card-director");
+        // var plotOmdb = $(".card-plot");
+        // var ratingOmdb = $(".card-rating");
+        // var imdbIdOmdb = $(".card-id");
+        // var posterOmdb = $(".movie-poster");
+        var giphyImg = oldTarget
+
+        var newReview = {
+            giphy: giphyImg.attr("src")
+            
+        };
+
+     
+        console.log(newReview)
+        // var newMovie = {
+        //     title: titleOmdb.text(),
+        //     director: directorOmdb.text(),
+        //     plot: plotOmdb.text(),
+        //     poster: posterOmdb.attr("src"),
+        //     rating: ratingOmdb.text(),
+        //     imdbID: imdbIdOmdb.text()
+        }
+        console.log(newMovie)
+        $.post("/api/reviews", newReview);
+        $.post("/api/movies", newMovie)
+    });
+
+
+
 });
 
 function updateGiphyCard(response) {
