@@ -1,18 +1,32 @@
 $(document).ready(function () {
 
   var oldTarget = $("<div>").attr("stlye", "border: none;")
+  var commentCardArea = $("#comment-card-area")
+  var ratingGlobal
+  var imdbIDGlobal
+  var movieIDGlobal
+  var usernameGlobal
+
+
+
+  // $(".dropdown-trigger").dropdown();
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
   $.get("/api/user_data").then(function (data) {
-    $(".member-name").text(data.email);
+    $("#member-name").text(data.username);
+    usernameGlobal = data.username;
+    console.log(data)
+    console.log(data.username)
   });
 
+  // This is an event listener for the giphy search
   var formGiphy = $("<form>").attr("id", "giphy-search");
   $("#giphy-search").submit(function (event) {
     event.preventDefault();
     giphySubmit(event)
   });
 
+  //This is the function to search the giphy api with a string from the input field
   function giphySubmit(event) {
 
     // event.preventDefault() can be used to prevent an event's default behavior.
@@ -40,12 +54,13 @@ $(document).ready(function () {
     });
   }
   $("#movie-search").submit(function (event) {
-    // if (event.which == 13) {
+
     event.preventDefault();
     var movieEl = $("#movie-input");
     var movie = movieEl.val();
     // console.log(movie)
-    $("#movieCard").remove();
+    $("#movieCall").empty();
+    commentCardArea.empty();
     var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
     $.ajax({
       url: queryURL,
@@ -53,6 +68,7 @@ $(document).ready(function () {
     }).then(function (response) {
       console.log(response);
       createMovieCard(response);
+      createMovieEntry();
 
     });
     // }
@@ -74,10 +90,12 @@ $(document).ready(function () {
     var director = result.Director;
     var plot = result.Plot;
     var imdbID = result.imdbID;
+    imdbIDGlobal = imdbID;
     var rating = result.imdbRating;
+    ratingGlobal = rating;
     console.log(title)
     console.log(result)
-    // console.log("hello")
+
     //creates the structure for the movie card
     var row = $("<div>").attr("id", "movieCard")
     row.addClass("row")
@@ -109,14 +127,14 @@ $(document).ready(function () {
     cardContent.append(movieImage, titleElement, directorElement, lineBreak, plotElement, lineBreakTwo, ratingElement, imdbIDElement);
     card.append(cardContent);
     col.append(card);
-    //row.append(col);
+
     var colGiphy = $("<div>")
     colGiphy.addClass("col s12 m5")
     var cardGiphy = $("<div>")
     cardGiphy.addClass("card white")
     var cardContentGiphy = $("<div>").attr("style", "overflow:auto")
     cardContentGiphy.addClass("card-content black-tex")
-    // var formGiphy = $("<form>").attr("id", "giphy-search");
+
     var inputGiphy = $("<input>").attr("id", "giphy-input")
     inputGiphy.attr("placeholder", "Search");
     var giphyImage = $("<div>").attr("id", "giphy-image");
@@ -126,19 +144,14 @@ $(document).ready(function () {
     cardGiphy.append(cardContentGiphy);
     colGiphy.append(cardGiphy);
 
-    $("#movieResults").prepend(col);
-    // $("#movieResults").append(colGiphy);
-    // console.log(163)
-    // formGiphy.submit(function (event) {
-    //     console.log("165")
-    //     giphySubmit(event)
-    // });
+    $("#movieCall").prepend(col);
 
-    //creates structure for the giphy search??? Comments??
   }
 
   var elems = document.querySelectorAll('.modal');
   var instances = M.Modal.init(elems);
+  var elemsDrop = document.querySelectorAll('.dropdown-trigger');
+  var instancesDrop = M.Dropdown.init(elemsDrop);
 
   $("#gify-cards").on('click', function (event) {
     var target = $(event.target);
@@ -146,42 +159,53 @@ $(document).ready(function () {
     console.log(target)
     target.attr("style", "border-style:solid")
     oldTarget = target
-    //   console.log(here)
   })
 
+
+  ////---POST---/////
   $("#post").click(function (event) {
     event.preventDefault();
     console.log("clicked it ... ");
-
-    // post variables
-    var titleOmdb = $(".card-title");
-    var directorOmdb = $(".card-director");
-    var plotOmdb = $(".card-plot");
-    var ratingOmdb = $(".card-rating");
-    var imdbIdOmdb = $(".card-id");
-    var posterOmdb = $(".movie-poster");
-    // var giphyImg = $(".giphy-result");
     var giphyImg = oldTarget[0].src;
-    console.log("the giphy src " + giphyImg)
-    var user = $(".member-name");
-
-    var newReview = {
-      // giphy: giphyImg.attr("src"),
-      giphy: giphyImg,
-      // movieId: imdbIdOmdb.text()
-    };
-    console.log(newReview);
-    var newMovie = {
-      title: titleOmdb.text(),
-      director: directorOmdb.text(),
-      plot: plotOmdb.text(),
-      poster: posterOmdb.attr("src"),
-      rating: ratingOmdb.text(),
-      imdbID: imdbIdOmdb.text()
-    };
-    console.log(newMovie);
-    $.post("/api/reviews", newReview);
-    $.post("/api/movies", newMovie);
+    // var user = $("#member-name");
+    var user = usernameGlobal
+    var commentReview = $("#textarea1").val()
+    commentCardArea.empty();
+    $.get("/api/movies/" + imdbIDGlobal, function (data) {
+      //console.log(data.id)
+      if (data) {
+        $.get("/api/users/username/" + user, function (userData) {
+          if (userData) {
+            var newReview = {
+              giphy: giphyImg,
+              comment: commentReview.toString(),
+              MovieId: data.id,
+              UserId: userData.id
+            };
+            console.log(newReview);
+            $.post("/api/reviews", newReview);
+            
+            createCommentCards()
+            $("#textarea1").val('')
+            $("#giphy-input").val('')
+            $("#gif1").attr("src", '');
+            $("#gif2").attr("src", '');
+            $("#gif3").attr("src", '');
+            $("#gif4").attr("src", '');
+            $("#gif5").attr("src", '');
+            $("#gif6").attr("src", '');
+            $("#gif7").attr("src", '');
+            $("#gif8").attr("src", '');
+            $("#gif9").attr("src", '');
+            oldTarget.attr("style", "border-style:none");
+          } else {
+            console.log("Did not retrieve user data 185")
+          }
+        })
+      } else {
+        console.log("This did not retrieve any data. 189")
+      }
+    });
   });
 
   function updateGiphyCard(response) {
@@ -206,4 +230,112 @@ $(document).ready(function () {
     $("#gif9").attr("src", img9);
   }
 
+  function createCommentCards() {
+
+    $.get("/api/reviews/" + movieIDGlobal, function (data) {
+      // var commentCardArea = $("#comment-card-area")
+
+      data.forEach(element => {
+        $.get("/api/users/" + element.UserId, function (userResult) {
+
+          
+          var commentRow = $("<div>")
+          commentRow.addClass("row")
+          var commentCol = $("<div>")
+          commentCol.addClass("col m12")
+          var commentCard = $("<div>")
+          commentCard.addClass("card blue lighten-1")
+          var commentCardContent = $("<div>")
+          commentCardContent.addClass("card-content white-text")
+          commentCardContent.attr("style", "overflow: auto")
+
+          //Comment Text Area
+          var nestedCommentRow = $("<div>")
+          nestedCommentRow.addClass("row")
+          var nestedCommentCol = $("<div>")
+          nestedCommentCol.addClass("col s12 m12 l12 xl12")
+          var usernameEl = $("<p>")
+          usernameEl.addClass('bold')
+          usernameEl.text(userResult.username)
+          // console.log(userResult)
+          var hr = $('<hr>')
+          var commentEl = $("<p>")
+          commentEl.addClass('comment')
+          commentEl.text(element.comment)
+          nestedCommentCol.append(usernameEl, hr, commentEl)
+
+          //Image Area
+          var nestedCommentImageCol = $("<div>");
+          nestedCommentImageCol.addClass("col s12 m12 l12 xl12");
+          var imageEl = $("<img>");
+          imageEl.attr("src", element.giphy);
+          nestedCommentImageCol.append(imageEl);
+
+          //All together now
+
+          nestedCommentRow.append(nestedCommentCol, nestedCommentImageCol);
+          commentCardContent.append(nestedCommentRow);
+          commentCard.append(commentCardContent);
+          commentCol.append(commentCard);
+          commentRow.append(commentCol);
+
+          commentCardArea.append(commentRow);
+        });
+
+      });
+
+
+    })
+
+  }
+  //Creates entry for mysql
+  function createMovieEntry() {
+
+    // post variables
+    var titleOmdb = $(".card-title");
+    var directorOmdb = $(".card-director");
+    var plotOmdb = $(".card-plot");
+    var ratingOmdb = ratingGlobal;
+    var imdbIdOmdb = imdbIDGlobal;
+    var posterOmdb = $(".movie-poster");
+    // var giphyImg = $(".giphy-result");
+
+    // console.log("the giphy src " + giphyImg)
+    var user = $(".member-name");
+
+
+    var newMovie = {
+      title: titleOmdb.text(),
+      director: directorOmdb.text(),
+      plot: plotOmdb.text(),
+      poster: posterOmdb.attr("src"),
+      rating: ratingOmdb,
+      imdbID: imdbIdOmdb
+    };
+    console.log(newMovie);
+    // console.log("data start----")
+    $.get("/api/movies/" + imdbIdOmdb, function (data) {
+      //console.log(data.id)
+      if (!data) {
+        $.post("/api/movies", newMovie);
+        $.get("/api/movies/" + imdbIdOmdb, function (dataTwo) {
+          movieIDGlobal = dataTwo.id
+          createCommentCards();
+        })
+      } else {
+        movieIDGlobal = data.id;
+        createCommentCards();
+      }
+    });
+  }
+
+
+  // $("#logOut").on("click", function (event){
+  //   event.preventDefault();
+  //   $.get("/logout")
+  //   console.log("Logged out!")
+  // })
+
+
 });
+

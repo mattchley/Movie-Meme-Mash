@@ -1,23 +1,24 @@
 {
   "development": {
     "username": "root",
-    "password": "Nirvana74!",
+    "password": "ZXCvbnASD!12345",
     "database": "mmm_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "Nirvana74!",
+    "password": "ZXCvbnASD!12345",
     "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": "Nirvana74!",
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "username": "afckczmnm06ey8jj",
+    "password": "mz43qhe7422e4zxt",
+    "database": "zhee511oem90czrf",
+    "host": "nba02whlntki5w2p.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   }
+
 }

@@ -19,7 +19,7 @@
 
   h4 {
     font-family: 'Raleway', sans-serif;
-  }s
+  }
 </style>
 
 <body class="blue-grey lighten-5">
@@ -50,7 +50,7 @@
         <h4>Sign Up Form</h4>
         <form class="signup">
           <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
+            <label for="email-input">Email address</label>
             <input type="email" class="form-control" id="email-input" placeholder="Email">
           </div>
           <div class="form-group">
@@ -60,6 +60,10 @@
           <div style="display: none" id="alert" class="alert alert-danger" role="alert">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <span class="sr-only">Error:</span> <span class="msg"></span>
+          </div>
+          <div class="form-group">
+            <label for="username-Input">Username</label>
+            <input type="text" class="validate" id="username-Input" placeholder="Username">
           </div>
           <button type="submit" class="btn btn-default blue lighten-1">Sign Up</button>
         </form>
