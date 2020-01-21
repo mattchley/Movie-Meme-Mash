@@ -9,13 +9,28 @@
     <link type="text/css" rel="stylesheet" href="./stylesheets/materialize.min.css" media="screen,projection" />
 
     <title>Movie Meme Mash</title>
+    <style>
+        .brand-logo {
+            font-family: 'Crushed', cursive;
+            font-size: xxx-large;
+        }
 
+        h4 {
+            font-family: 'Raleway', sans-serif;
+        }
+    </style>
 </head>
 
 <body class="white">
+    <ul id="dropdown1" class="dropdown-content">
+        <!-- <li><a href="#!">one</a></li>
+        <li><a href="#!">two</a></li>
+        <li class="divider"></li> -->
+        <li><a href="/logout" id="logOut">Log Out</a></li>
+    </ul>
     <nav class="blue lighten-1">
         <div class="nav-wrapper container">
-            <a href="./index.html" class="brand-logo center" card-panel white>Movie Meme Mash</a>
+            <a href="./index.html" class="brand-logo center">React Movie Review</a>
             <a href="#" data-target="nav-mobile" class="top-nav sidenav-trigger full hide-on-large-only">
                 <i class="material-icons">menu</i>
             </a>
@@ -29,8 +44,9 @@
                 </li>
             </ul>
             <ul class="right hide-on-med-and-down">
-                <!-- <li><a href="./signup.html">Sign Up</a></li>
-                <li><a href="./login.html">Login</a></li> -->
+                <!-- Dropdown Trigger -->
+                <li><a class="dropdown-trigger" href="#!" data-target="dropdown1" id="member-name"><i
+                            class="material-icons right">arrow_drop_down</i></a></li>
             </ul>
         </div>
     </nav>
@@ -47,14 +63,16 @@
     </ul>
 
     <div id="movieResults" class="row">
+        <div id="movieCall">
 
+        </div>
 
         <div class="col s12 m5" style="visibility: hidden;" id="giphy-col">
             <br>
             <div class="row">
 
                 <!-- Modal Trigger -->
-                <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Add Review</a>
+                <a class="waves-effect waves-light btn modal-trigger blue lighten-1" href="#modal1">Add Review</a>
 
                 <!-- Modal Structure -->
                 <div id="modal1" class="modal modal-fixed-footer">
@@ -147,26 +165,24 @@
                                         </div>
 
                                     </div>
+
+
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <a id="post" href="#!" class="modal-close waves-effect waves-green btn-flat">Submit</a>
+                        <button class="modal-close waves-effect waves-green btn blue lighten-1"
+                            id="post">Submit</button>
                     </div>
                 </div>
                 <!-- End of Modal Strutction -->
             </div>
-            <div class="row">
-                <div class="card blue-grey darken-1">
-                    <div class="card-content white-text" style="overflow: auto">
-                        <!-- <form id="giphy-search">
-                        <input id="giphy-input" placeholder="Search">
-                        <div id="giphy-image" style="float:center"></div>
-                    </form> -->
-                    </div>
-                </div>
+
+            <div id="comment-card-area">
+
             </div>
+            
         </div>
     </div>
     ​

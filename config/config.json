@@ -1,14 +1,14 @@
 {
   "development": {
     "username": "root",
-    "password": "Stockholm!1",
+    "password": "ZXCvbnASD!12345",
     "database": "mmm_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "Nirvana74!",
+    "password": "ZXCvbnASD!12345",
     "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql"

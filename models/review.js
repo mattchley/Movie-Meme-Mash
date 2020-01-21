@@ -3,6 +3,10 @@ module.exports = function (sequelize, DataTypes) {
     giphy: {
       type: DataTypes.STRING
     },
+    comment: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    }
     // movieId: {
     //   type: DataTypes.STRING,
     //         allowNull: true
@@ -12,6 +16,11 @@ module.exports = function (sequelize, DataTypes) {
 
   Review.associate = function (models) {
     Review.belongsTo(models.Movie, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+    Review.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
       }

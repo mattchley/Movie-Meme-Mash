@@ -28,7 +28,9 @@ module.exports = function (sequelize, DataTypes) {
     });
 
     Movie.associate = function (models) {
-        Movie.hasMany(models.Review, {});
+        Movie.hasMany(models.Review, {
+            onDelete: "cascade"
+        });
     };
 
     return Movie;
