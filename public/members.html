@@ -54,15 +54,26 @@
             <div class="row">
 
                 <!-- Modal Trigger -->
-                <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Add Review</a>
+                <a class="blue lighten-1 btn modal-trigger" href="#modal1">Add Review</a>
 
                 <!-- Modal Structure -->
                 <div id="modal1" class="modal modal-fixed-footer">
                     <div class="modal-content">
-                        <h4>Enter a comment</h4>
-                        <hr>
-                        <div class="row">
-                            <div class="col s12">
+                    <h4>Your Review</h4>
+                    <hr>
+                    <div class="row">
+                        <div class="col s12">
+                          <div class="row">
+                            <div class="input-field col s12">
+                              <textarea id="textarea1" class="materialize-textarea"></textarea>
+                              <label for="textarea1">Enter Your Review</label>
+                            </div>
+                            <form id="giphy-search">
+                                <input id="giphy-input" placeholder="Type how the movie made you feel, then select a GIPHY!">
+                                    <div id="giphy-image" style="float:center"></div>
+                            </form>
+                            <!-- Giphy cards -->
+                            <div class="container" id="gify-cards">
                                 <div class="row">
                                     <div class="input-field col s12">
                                         <textarea id="textarea1" class="materialize-textarea"></textarea>
@@ -152,7 +163,11 @@
                         </div>
                     </div>
                     <div class="modal-footer">
+<<<<<<< HEAD
+                    <a href="#!" id="submit" class="modal-close blue lighten-1 btn-flat">Submit</a>
+=======
                         <a id="post" href="#!" class="modal-close waves-effect waves-green btn-flat">Submit</a>
+>>>>>>> 2658729ac12c0f07ab03f5db736cd5f13a08d96b
                     </div>
                 </div>
                 <!-- End of Modal Strutction -->
