@@ -318,8 +318,8 @@ $(document).ready(function () {
       //console.log(data.id)
       if (!data) {
         $.post("/api/movies", newMovie);
-        $.get("/api/movies/" + imdbIdOmdb, function (dataTwo) {
-          movieIDGlobal = dataTwo.id
+        $.get("/api/movies/" + imdbIdOmdb, function (data) {
+          movieIDGlobal = data.id
           createCommentCards();
         })
       } else {
