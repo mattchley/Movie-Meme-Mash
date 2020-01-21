@@ -27,15 +27,9 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
 
-    // Movie.associate = function (models) {
-        // We're saying that a Movie should belong to an Author
-        // A Movie can't be created without an Author due to the foreign key constraint
-    //     Movie.belongsTo(models.Review, {
-    //         foreignKey: {
-    //             allowNull: true
-    //         }
-    //     });
-    // };
+    Movie.associate = function (models) {
+        Movie.hasMany(models.Review, {});
+    };
 
     return Movie;
 };
